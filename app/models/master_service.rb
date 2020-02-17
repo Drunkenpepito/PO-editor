@@ -1,0 +1,2 @@
+class MasterService < ApplicationRecord
+end

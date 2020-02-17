@@ -1,0 +1,20 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_url "mer.png" %>') ;">
+  <h1 id="banner-typed-text"><strong> COCKTAIL</strong> Time </h1>.typed
+  <h1><button class="btn btn-ghost"> <%= link_to 'Order here!', new_master_service_path %> </button></h1>
+  <div >
+  </br>
+     <div class="cards">
+      <% @master_services.each do |master_service| %>
+
+        <% if master_service.photo.attached? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path master_service.photo.key %>')">
+          <%= link_to master_service.name, master_service_path(master_service.id) %>
+        <% else %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=image_path("shipping_agent.jpg")%>')">
+          <%= link_to master_service.name, master_service_path(master_service.id) %>
+        <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
